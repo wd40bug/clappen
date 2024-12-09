@@ -1,0 +1,19 @@
+args = ["--help"]
+bin.name = "clappen_full_wrapper_default_prefix"
+status.code = 0
+stderr = ""
+stdout = """
+A test command line
+
+Usage: clappen_full_wrapper_default_prefix --my-prefix-log-level <MY_PREFIX_LOG_LEVEL> --my-prefix-log-prefix-log-level <MY_PREFIX_LOG_PREFIX_LOG_LEVEL>
+
+Options:
+      --my-prefix-log-level <MY_PREFIX_LOG_LEVEL>
+          [env: MY_PREFIX_LOG_LEVEL=]
+      --my-prefix-log-prefix-log-level <MY_PREFIX_LOG_PREFIX_LOG_LEVEL>
+          [env: MY_PREFIX_LOG_PREFIX_LOG_LEVEL=]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+"""

@@ -1,0 +1,5 @@
+error: 'apply' must be specified when #[command(flatten)] is provided for clap
+  --> tests/expand/invalid_usage/flatten_command_without_clappen.fail.rs:18:9
+   |
+18 |         /// A nested struct that needs a prefix.
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,0 +1,81 @@
+name: continuous-integration
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  DOCKER: ""
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.workflow }}-build-${{ github.event.pull_request.number || github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+      - run: cargo build
+  lint:
+    runs-on: ubuntu-latest
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.workflow }}-lint-${{ github.event.pull_request.number || github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with: 
+          toolchain: stable
+          components: clippy
+      - run: cargo clippy --all --all-targets --all-features -- -D warnings
+      - uses: bnjbvr/cargo-machete@main # check unused dependencies
+  test:
+    runs-on: ubuntu-latest
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.workflow }}-test-${{ github.event.pull_request.number || github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-expand
+      - run: cargo test
+  fmt:
+    runs-on: ubuntu-latest
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.workflow }}-fmt-${{ github.event.pull_request.number || github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with: 
+          toolchain: stable
+          components: rustfmt
+      - run: cargo fmt --all
+      - name: Run cargo sort
+        run : >
+          curl -L -s "https://github.com/tamasfe/taplo/releases/download/0.8.1/taplo-linux-x86_64.gz" | gunzip > taplo && 
+          chmod a+x taplo &&
+          ./taplo format
+      - name: Check for a diff
+        run: git diff --exit-code
+  cargo-deny-checks:
+    name: Check cargo deny rules
+    runs-on: ubuntu-latest
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.workflow }}-cargo-deny-checks-${{ github.event.pull_request.number || github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          # cargo deny -L error --workspace check bans advisories sources
+          command: check bans advisories sources
+          log-level: error
+          arguments: --workspace

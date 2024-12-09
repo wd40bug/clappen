@@ -1,0 +1,5 @@
+error: clappen must have a unique struct definition
+ --> tests/expand/invalid_usage/multiple_struct.fail.rs:3:24
+  |
+3 |     #[clappen::clappen(export = prefix)]
+  |                        ^^^^^^^^^^^^^^^

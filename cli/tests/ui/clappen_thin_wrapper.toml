@@ -1,0 +1,17 @@
+args = ["--help"]
+bin.name = "clappen_thin_wrapper"
+status.code = 0
+stderr = ""
+stdout = """
+A test command line
+
+Usage: clappen_thin_wrapper [OPTIONS] --url <URL> --test-id <TEST_ID> --test1-id <TEST1_ID>
+
+Options:
+      --url <URL>              Address to connect to [env: URL=]
+      --say-hello <SAY_HELLO>  Do you need to say hello? [env: SAY_HELLO=] [possible values: true, false]
+      --test-id <TEST_ID>      [env: TEST_ID=]
+      --test1-id <TEST1_ID>    [env: TEST1_ID=]
+  -h, --help                   Print help
+  -V, --version                Print version
+"""

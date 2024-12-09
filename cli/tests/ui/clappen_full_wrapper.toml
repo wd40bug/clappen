@@ -1,0 +1,22 @@
+args = ["--help"]
+bin.name = "clappen_full_wrapper"
+status.code = 0
+stderr = ""
+stdout = """
+A test command line
+
+Usage: clappen_full_wrapper [OPTIONS] --url <URL> --id <ID> --test-id <TEST_ID> --test1-id <TEST1_ID> <COMMAND>
+
+Commands:
+  my-sub-command  A sub command
+  help            Print this message or the help of the given subcommand(s)
+
+Options:
+      --url <URL>              Address to connect to [env: URL=]
+      --say-hello <SAY_HELLO>  Do you need to say hello? [env: SAY_HELLO=] [possible values: true, false]
+      --id <ID>                [env: ID=]
+      --test-id <TEST_ID>      [env: TEST_ID=]
+      --test1-id <TEST1_ID>    [env: TEST1_ID=]
+  -h, --help                   Print help
+  -V, --version                Print version
+"""

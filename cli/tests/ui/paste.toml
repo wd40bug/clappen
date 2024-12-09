@@ -1,0 +1,31 @@
+args = ["--help"]
+bin.name = "paste"
+status.code = 0
+stderr = ""
+stdout = """
+Usage: paste [OPTIONS] --nested-name <NESTED_NAME> --nested-url <NESTED_URL> --bis-name <BIS_NAME> --bis-url <BIS_URL> --third-name <THIRD_NAME> --third-url <THIRD_URL>
+
+Options:
+      --nested-name <NESTED_NAME>
+          [env: NESTED_NAME=]
+      --nested-url <NESTED_URL>
+          Address to connect to [env: NESTED_URL=]
+      --nested-say-hello <NESTED_SAY_HELLO>
+          Do you need to say hello? [env: NESTED_SAY_HELLO=] [possible values: true, false]
+      --bis-name <BIS_NAME>
+          [env: BIS_NAME=]
+      --bis-url <BIS_URL>
+          Address to connect to [env: BIS_URL=]
+      --bis-say-hello <BIS_SAY_HELLO>
+          Do you need to say hello? [env: BIS_SAY_HELLO=] [possible values: true, false]
+      --third-name <THIRD_NAME>
+          [env: THIRD_NAME=]
+      --third-url <THIRD_URL>
+          Address to connect to [env: THIRD_URL=]
+      --third-say-hello <THIRD_SAY_HELLO>
+          Do you need to say hello? [env: THIRD_SAY_HELLO=] [possible values: true, false]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+"""

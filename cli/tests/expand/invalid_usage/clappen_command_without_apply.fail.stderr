@@ -1,0 +1,5 @@
+error: expected `=`
+  --> tests/expand/invalid_usage/clappen_command_without_apply.fail.rs:18:32
+   |
+18 |         #[clappen_command(apply)]
+   |                                ^

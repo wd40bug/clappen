@@ -1,0 +1,14 @@
+[workspace]
+members = ["clappen", "cli"]
+package = { edition = "2021", version = "0.0.1" }
+resolver = "2"
+
+[workspace.dependencies]
+clap = { version = "4.5.23", default-features = false }
+macrotest = { version = "1.0.13", default-features = false }
+paste = { version = "1.0.15", default-features = false }
+proc-macro2 = { version = "1.0.92", default-features = false }
+quote = { version = "1.0.37", default-features = false }
+syn = { version = "2.0.90", default-features = false }
+trybuild = { version = "1.0.101", default-features = false }
+trycmd = { version = "0.15.8", default-features = false }

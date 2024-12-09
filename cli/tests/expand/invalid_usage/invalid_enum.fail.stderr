@@ -1,0 +1,5 @@
+error: clappen support is limited to a single struct with one or more impl/use blocks
+ --> tests/expand/invalid_usage/invalid_enum.fail.rs:2:24
+  |
+2 |     #[clappen::clappen(export = test)]
+  |                        ^^^^^^^^^^^^^

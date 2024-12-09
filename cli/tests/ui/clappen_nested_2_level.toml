@@ -1,0 +1,21 @@
+args = ["--help"]
+bin.name = "clappen_nested_2_level"
+status.code = 0
+stderr = ""
+stdout = """
+A test command line
+
+Usage: clappen_nested_2_level [OPTIONS] --url <URL> --level1-level2-id <LEVEL1_LEVEL2_ID>
+
+Options:
+      --url <URL>
+          Address to connect to [env: URL=]
+      --say-hello <SAY_HELLO>
+          Do you need to say hello? [env: SAY_HELLO=] [possible values: true, false]
+      --level1-level2-id <LEVEL1_LEVEL2_ID>
+          [env: LEVEL1_LEVEL2_ID=]
+  -h, --help
+          Print help
+  -V, --version
+          Print version
+"""
