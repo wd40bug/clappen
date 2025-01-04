@@ -118,7 +118,6 @@ dependencies = [
  "clap",
  "macrotest",
  "paste",
- "prettyplease",
  "proc-macro2",
  "quote",
  "syn",
